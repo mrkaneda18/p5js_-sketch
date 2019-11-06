@@ -1,0 +1,51 @@
+let angle = 0;
+let radiusSlider;
+var final=270
+
+
+function setup() {
+
+  canvas=createCanvas(windowWidth*.96, 800);
+  
+  //slider
+  
+  radiusSlider = createSlider(150, final, 0,);
+  radiusSlider.position(20,40);
+  radiusSlider.style('width', '80px');
+  
+}
+function draw() {
+
+  background(24, 29, 64);
+
+ 
+  angleMode(DEGREES)
+            
+  
+  //text of slider
+  fill(143, 245, 88);  
+  text('Moon Position',20,10,150,90);
+  fill(255, 191, 0);
+  
+  
+  let r = radiusSlider.value();
+  
+  //water  
+  translate(500,395)
+  rotate(angle);
+  fill(100,150,250);
+  ellipseMode(CENTER);  
+  ellipse(0,0,150,final-(r/2));
+  
+  //Earth
+  fill (10, 168, 52);
+  ellipse(0, 0, 150, 150)
+   
+  //moon
+  fill ('grey');
+  ellipse(0, r, 50, 50)
+  noStroke();
+
+  angle= angle +1;  
+
+}
